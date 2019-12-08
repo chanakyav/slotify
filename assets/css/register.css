@@ -57,6 +57,7 @@ body {
     padding: 45px;
     float: left;
     border-right: 1px solid #999;
+    margin: 50px 0;
 }
 
 #inputContainer h2 {
@@ -99,9 +100,15 @@ body {
 
 .hasAccountText {
     text-align: center;
+    cursor: pointer;
 }
 
 .hasAccountText span {
     font-weight: bold;
     font-size: 12px;
+}
+
+#registerForm,
+#loginForm {
+    display: none;
 }

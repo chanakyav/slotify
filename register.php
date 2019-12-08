@@ -22,10 +22,31 @@ function getInputValue($name)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/css/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/js/register.js"></script>
     <title>Welcome to Slotify!</title>
 </head>
 
 <body>
+
+    <?php 
+        if (isset($_POST['registerButton'])) {
+            echo '<script>
+                    $(document).ready(function() {
+                        $("#loginForm").hide();
+                        $("#registerForm").show();
+                    })
+                </script>';
+        } else {
+            echo '<script>
+                    $(document).ready(function() {
+                        $("#loginForm").show();
+                        $("#registerForm").hide();
+                    })
+                </script>';
+        }
+    ?>
+
     <div id="background">
         <div id="loginContainer">
             <div id="inputContainer">
@@ -93,7 +114,7 @@ function getInputValue($name)
                     </p>
 
                     <button type="submit" name="registerButton">Sign Up</button>
-                    
+
                     <div class="hasAccountText">
                         <span id="hideRegister">Already have an account? Login here.</span>
                     </div>
