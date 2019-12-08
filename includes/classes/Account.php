@@ -13,6 +13,20 @@
             $this->validateLastName($ln);
             $this->validateEmails($em, $em2);
             $this->validatePasswords($pw, $pw2);
+
+            if (empty($this->errorArray)) {
+                // Insert into DB
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function getError($error) {
+            if (!in_array($error, $this->errorArray)) {
+                $error = '';
+            }
+            return "<span class='errorMessage'>$error</span>";
         }
 
         private function validateUsername($un)
@@ -49,7 +63,7 @@
             }
 
             if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
-                # code...
+                array_push($this->errorArray, "Email is invalid");
             }
 
             // TODO: Check that username hasn't already being used
