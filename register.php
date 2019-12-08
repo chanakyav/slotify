@@ -1,8 +1,9 @@
 <?php
-    include("includes/classes/Account.php");
-    $account = new Account();
-    include("includes/handlers/register-handler.php");
-    include("includes/handlers/login-handler.php");
+include("includes/classes/Account.php");
+include("includes/classes/Constants.php");
+$account = new Account();
+include("includes/handlers/register-handler.php");
+include("includes/handlers/login-handler.php");
 ?>
 
 <!DOCTYPE html>
@@ -38,18 +39,23 @@
             <h2>Create your free account</h2>
 
             <p>
+                <?php echo $account->getError(Constants::$usernameCharacters) ?>
                 <label for="username">Username</label>
                 <input id="username" name="username" type="text" placeholder="e.g. chanakyav" required>
             </p>
             <p>
+                <?php echo $account->getError(Constants::$firstNameCharacters) ?>
                 <label for="firstName">First Name</label>
                 <input id="firstName" name="firstName" type="text" placeholder="e.g. Chanakya" required>
             </p>
             <p>
+                <?php echo $account->getError(Constants::$lastNameCharacters) ?>
                 <label for="lastName">Last Name</label>
                 <input id="lastName" name="lastName" type="text" placeholder="e.g. Valluri" required>
             </p>
             <p>
+                <?php echo $account->getError(Constants::$emailsDoNotMatch) ?>
+                <?php echo $account->getError(Constants::$emailInvalid) ?>
                 <label for="email">Email</label>
                 <input id="email" name="email" type="email" placeholder="e.g. chanakyav@gmail.com" required>
             </p>
@@ -59,6 +65,9 @@
             </p>
 
             <p>
+                <?php echo $account->getError(Constants::$passwordsDoNotMatch) ?>
+                <?php echo $account->getError(Constants::$passwordNotAlphaNumeric) ?>
+                <?php echo $account->getError(Constants::$passwordCharacters) ?>
                 <label for="password">Password</label>
                 <input id="password" name="password" type="password" placeholder="Your password" required>
             </p>
