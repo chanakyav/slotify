@@ -1,17 +1,17 @@
 <?php
-    include("includes/config.php");
-    include("includes/classes/Account.php");
-    include("includes/classes/Constants.php");
-    $account = new Account($con);
-    include("includes/handlers/register-handler.php");
-    include("includes/handlers/login-handler.php");
+include("includes/config.php");
+include("includes/classes/Account.php");
+include("includes/classes/Constants.php");
+$account = new Account($con);
+include("includes/handlers/register-handler.php");
+include("includes/handlers/login-handler.php");
 
-    function getInputValue($name)
-    {
-        if (isset($_POST[$name])) {
-            echo $_POST[$name];
-        }
+function getInputValue($name)
+{
+    if (isset($_POST[$name])) {
+        echo $_POST[$name];
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
                     <h2>Login to your account</h2>
 
                     <p>
-                        <?php echo $account->getError(Constants::$loginFailed)?>
+                        <?php echo $account->getError(Constants::$loginFailed) ?>
                         <label for="loginUsername">Username</label>
                         <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. chanakyav" required>
                     </p>
@@ -44,6 +44,10 @@
                     </p>
 
                     <button type="submit" name="loginButton">Login</button>
+
+                    <div class="hasAccountText">
+                        <span id="hideLogin">Don't have an account yet? Signup here.</span>
+                    </div>
 
                 </form>
 
@@ -89,7 +93,10 @@
                     </p>
 
                     <button type="submit" name="registerButton">Sign Up</button>
-
+                    
+                    <div class="hasAccountText">
+                        <span id="hideRegister">Already have an account? Login here.</span>
+                    </div>
                 </form>
             </div>
         </div>
