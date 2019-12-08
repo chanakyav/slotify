@@ -29,22 +29,22 @@ function getInputValue($name)
 
 <body>
 
-    <?php 
-        if (isset($_POST['registerButton'])) {
-            echo '<script>
+    <?php
+    if (isset($_POST['registerButton'])) {
+        echo '<script>
                     $(document).ready(function() {
                         $("#loginForm").hide();
                         $("#registerForm").show();
                     })
                 </script>';
-        } else {
-            echo '<script>
+    } else {
+        echo '<script>
                     $(document).ready(function() {
                         $("#loginForm").show();
                         $("#registerForm").hide();
                     })
                 </script>';
-        }
+    }
     ?>
 
     <div id="background">
@@ -56,7 +56,7 @@ function getInputValue($name)
                     <p>
                         <?php echo $account->getError(Constants::$loginFailed) ?>
                         <label for="loginUsername">Username</label>
-                        <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. chanakyav" required>
+                        <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. chanakyav" value="<?php getInputValue('loginUsername') ?>" required>
                     </p>
 
                     <p>
@@ -119,6 +119,15 @@ function getInputValue($name)
                         <span id="hideRegister">Already have an account? Login here.</span>
                     </div>
                 </form>
+            </div>
+            <div id="loginText">
+                <h1>Get greate music, right now</h1>
+                <h2>Listen to loads of songs for free</h2>
+                <ul>
+                    <li>Discover music you'll fall in love with</li>
+                    <li>Create your own playlists</li>
+                    <li>Follow artists to keep up to date</li>
+                </ul>
             </div>
         </div>
     </div>
